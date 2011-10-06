@@ -1,0 +1,2 @@
+module CasualsubscriptionsHelper
+end

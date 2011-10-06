@@ -1,0 +1,34 @@
+
+<p>
+  <b>User:</b>
+  <%= @regularsubscription.user_id %>
+</p>
+
+<p>
+  <b>Regularshare:</b>
+  <%= @regularsubscription.regularshare_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @regularsubscription.amount %>
+</p>
+
+<p>
+  <b>Passengers:</b>
+  <%= @regularsubscription.passengers %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @regularsubscription.status %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @regularsubscription.details %>
+</p>
+
+
+<%= link_to 'Edit', edit_regularsubscription_path(@regularsubscription) %> |
+<%= link_to 'Back', regularsubscriptions_path %>

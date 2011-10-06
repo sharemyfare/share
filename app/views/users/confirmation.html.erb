@@ -1,0 +1,22 @@
+<% @user = User.find_by_confirmation(params[:confirmation])
+    if !@user.nil?	
+      if !@user.active?
+	if @user.toggle!(:active) %>
+         <%=  "Registration successful, Please login to continue" %>
+           
+        <% else 
+           render 'confirmation'
+     	end
+      else %>
+	<%= "Your Account is already active." %>
+     <% end
+    else %>
+	<%=  "Given Link doesnt exist. Please check carefully" %>
+ <% end %>
+
+
+<% 
+if !@user.nil?
+if @user.active? %>
+ <%= link_to "Login Here", login_url %>
+<% end end %> 

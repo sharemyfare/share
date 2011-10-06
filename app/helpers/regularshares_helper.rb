@@ -1,0 +1,2 @@
+module RegularsharesHelper
+end

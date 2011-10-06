@@ -1,0 +1,86 @@
+<table width=1000 align=center border=0><tr><td width=65% valign=top>
+<p>
+  <b>User:</b>
+  <%= @regularshare.user.firstname %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= Place.find(@regularshare.source_id).placename %>
+</p>
+
+<p>
+  <b>Destinatoin:</b>
+  <%= Place.find(@regularshare.destination_id).placename %>
+</p>
+
+<p>
+  <b>Starttime:</b>
+  <%= @regularshare.starttime %>
+</p>
+
+<p>
+  <b>Endtime:</b>
+  <%= @regularshare.endtime %>
+</p>
+
+
+<p>
+  <b>Availabilty</b>
+  <% if @regularshare.monday? %><%= "Monday" %><% end %>
+  <% if @regularshare.tuesday? %><%= "Tuesday" %><% end %>
+  <% if @regularshare.wednesday? %><%= "Wednesday" %><% end %>
+  <% if @regularshare.thursday? %><%= "Thursday" %><% end %>
+  <% if @regularshare.friday? %><%= "Friday" %><% end %>
+  <% if @regularshare.saturday? %><%= "Saturday" %><% end %>
+  <% if @regularshare.sunday? %><%= "Sunday" %> <% end %>
+</p>
+
+
+<p>
+  <b>Vehicle:</b>
+  <%= @regularshare.vehicle %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @regularshare.amount %>
+</p>
+
+<p>
+  <b>Numofpassengers:</b>
+  <%= @regularshare.numofpassengers %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @regularshare.details %>
+</p>
+<%= link_to 'Edit', edit_regularshare_path(@regularshare) %> |
+<%= link_to 'Back', regularshares_path %>
+</td><td>
+<%= render 'shared/regularsubscription_form' %>
+
+<% unless @regularsubscriptions.empty? %>
+
+<table class="microposts" style="text-align:left;" border=1 cellspacing=0 width=400>
+<%= render @regularsubscriptions %>
+</table>
+
+<% end %>
+</td></tr>
+<tr><td>
+<br/><hr />
+<%= render 'shared/regularcomment_form' %>
+
+<% unless @regularcomments.empty? %>
+
+<table class="microposts" style="text-align:left;" border=1 cellspacing=0 width=400>
+<%= render @regularcomments %>
+</table>
+<% end %>
+
+</td></tr>
+
+</table>
+

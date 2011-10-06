@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Regularshare:</b>
+  <%= @regularcomment.regularshare_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @regularcomment.user_id %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @regularcomment.details %>
+</p>
+
+
+<%= link_to 'Edit', edit_regularcomment_path(@regularcomment) %> |
+<%= link_to 'Back', regularcomments_path %>

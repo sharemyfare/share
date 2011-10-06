@@ -1,0 +1,39 @@
+<h1>Listing casualshares</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Source</th>
+    <th>Destinatoin</th>
+    <th>Starttime</th>
+    <th>Endtime</th>
+    <th>Vehicle</th>
+    <th>Amount</th>
+    <th>Numofpassengers</th>
+    <th>Details</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @casualshares.each do |casualshare| %>
+  <tr>
+    <td><%= casualshare.user_id %></td>
+    <td><%= casualshare.source_id %></td>
+    <td><%= casualshare.destination_id %></td>
+    <td><%= casualshare.starttime %></td>
+    <td><%= casualshare.endtime %></td>
+    <td><%= casualshare.vehicle %></td>
+    <td><%= casualshare.amount %></td>
+    <td><%= casualshare.numofpassengers %></td>
+    <td><%= casualshare.details %></td>
+    <td><%= link_to 'Show', casualshare %></td>
+    <td><%= link_to 'Edit', edit_casualshare_path(casualshare) %></td>
+    <td><%= link_to 'Destroy', casualshare, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Casualshare', new_casualshare_path %>

@@ -1,0 +1,86 @@
+<% @places = Place.all %>
+ <% cou = @places.count %>
+ <% arr = Array.new(10) { Array.new(2) } %>
+ <% for n in 1..10 %>
+ <% arr[n-1][0] = @places[n-1].placename %>
+ <% arr[n-1][1] = n %>
+ <% end %>
+ <% arr %>
+
+<%= form_for(@regularshare) do |f| %>
+  <% if @regularshare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@regularshare.errors.count, "error") %> prohibited this regularshare from being saved:</h2>
+
+      <ul>
+      <% @regularshare.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field">
+    <%= f.label :source_id %><br />
+    <%= f.select(:source_id, arr ) %>
+  </div>
+  <div class="field">
+    <%= f.label :destination_id %><br />
+    <%= f.select(:destination_id, arr ) %>
+  </div>
+  <div class="field">
+    <%= f.label :starttime %><br />
+    <%= f.datetime_select :starttime %>
+  </div>
+  <div class="field">
+    <%= f.label :endtime %><br />
+    <%= f.datetime_select :endtime %>
+  </div>
+  <div class="field">
+    <%= f.label :monday %><br />
+    <%= f.check_box :monday %>
+  </div>
+  <div class="field">
+    <%= f.label :tuesday %><br />
+    <%= f.check_box :tuesday %>
+  </div>
+  <div class="field">
+    <%= f.label :wednesday %><br />
+    <%= f.check_box :wednesday %>
+  </div>
+  <div class="field">
+    <%= f.label :thursday %><br />
+    <%= f.check_box :thursday %>
+  </div>
+  <div class="field">
+    <%= f.label :friday %><br />
+    <%= f.check_box :friday %>
+  </div>
+  <div class="field">
+    <%= f.label :saturday %><br />
+    <%= f.check_box :saturday %>
+  </div>
+  <div class="field">
+    <%= f.label :sunday %><br />
+    <%= f.check_box :sunday %>
+  </div>
+  <div class="field">
+    <%= f.label :vehicle %><br />
+    <%= f.text_field :vehicle %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :numofpassengers %><br />
+    <%= f.number_field :numofpassengers %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br />
+    <%= f.text_area :details %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

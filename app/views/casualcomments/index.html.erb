@@ -1,0 +1,27 @@
+<h1>Listing casualcomments</h1>
+
+<table>
+  <tr>
+    <th>Casualshare</th>
+    <th>User</th>
+    <th>Details</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @casualcomments.each do |casualcomment| %>
+  <tr>
+    <td><%= casualcomment.casualshare_id %></td>
+    <td><%= casualcomment.user_id %></td>
+    <td><%= casualcomment.details %></td>
+    <td><%= link_to 'Show', casualcomment %></td>
+    <td><%= link_to 'Edit', edit_casualcomment_path(casualcomment) %></td>
+    <td><%= link_to 'Destroy', casualcomment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Casualcomment', new_casualcomment_path %>

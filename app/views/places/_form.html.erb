@@ -1,0 +1,34 @@
+ <% @cities = City.all %>
+ <% cou = @cities.count %>
+ <% arr = Array.new(cou) { Array.new(2) } %>
+ <% for n in 1..cou %>
+ <% arr[n-1][0] = @cities[n-1].cityname %>
+ <% arr[n-1][1] = n %>
+ <% end %>
+ <% arr %>
+
+<%= form_for(@place) do |f| %>
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+      <% @place.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :placename %><br />
+    <%= f.text_field :placename %>
+  </div>
+  <div class="field">
+    <%= f.label :city_id %><br />
+    <%= f.select(:city_id, arr ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

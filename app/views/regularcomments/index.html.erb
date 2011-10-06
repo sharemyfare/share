@@ -1,0 +1,27 @@
+<h1>Listing regularcomments</h1>
+
+<table>
+  <tr>
+    <th>Regularshare</th>
+    <th>User</th>
+    <th>Details</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @regularcomments.each do |regularcomment| %>
+  <tr>
+    <td><%= regularcomment.regularshare_id %></td>
+    <td><%= regularcomment.user_id %></td>
+    <td><%= regularcomment.details %></td>
+    <td><%= link_to 'Show', regularcomment %></td>
+    <td><%= link_to 'Edit', edit_regularcomment_path(regularcomment) %></td>
+    <td><%= link_to 'Destroy', regularcomment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Regularcomment', new_regularcomment_path %>

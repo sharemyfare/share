@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  amount: 1
+  passengers: 1
+  status: false
+  details: MyText
+
+two:
+  amount: 1
+  passengers: 1
+  status: false
+  details: MyText

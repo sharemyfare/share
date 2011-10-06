@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @casualsubscription.user_id %>
+</p>
+
+<p>
+  <b>Casualshare:</b>
+  <%= @casualsubscription.casualshare_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @casualsubscription.amount %>
+</p>
+
+<p>
+  <b>Passengers:</b>
+  <%= @casualsubscription.passengers %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @casualsubscription.status %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @casualsubscription.details %>
+</p>
+
+
+<%= link_to 'Edit', edit_casualsubscription_path(@casualsubscription) %> |
+<%= link_to 'Back', casualsubscriptions_path %>

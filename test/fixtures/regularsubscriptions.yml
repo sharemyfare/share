@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  regularshare_id: 1
+  amount: 1
+  passengers: 1
+  status: false
+  details: MyText
+
+two:
+  user_id: 1
+  regularshare_id: 1
+  amount: 1
+  passengers: 1
+  status: false
+  details: MyText

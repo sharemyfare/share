@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Casualshare:</b>
+  <%= @casualcomment.casualshare_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @casualcomment.user_id %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @casualcomment.details %>
+</p>
+
+
+<%= link_to 'Edit', edit_casualcomment_path(@casualcomment) %> |
+<%= link_to 'Back', casualcomments_path %>

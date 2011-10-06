@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sujit Sagar</title>
+  <%= stylesheet_link_tag :all %>
+<link href="/assets/scaffold.css" media="screen" rel="stylesheet" type="text/css" />
+  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tag %>
+
+</head>
+<body>
+<table align="center"><tr><TD>
+    <div id="nav">
+        <% if current_user %>
+        <%= link_to "Edit Profile", edit_user_path(current_user.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <%= link_to "Register", signup_path%> | 
+        <%= link_to "Login", :login %>
+        <% end %>
+    </div>
+
+<% flash.each do |key, value| %>
+<div id="flash <%= key %>"><%= value %></div>
+<% end %>
+
+
+<%= yield %>
+</TD></tr></table>
+</body>
+</html>

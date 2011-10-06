@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  source_id: 1
+  destinatoin_id: 1
+  starttime: 2011-09-27 18:46:49
+  endtime: 2011-09-27 18:46:49
+  vehicle: MyString
+  amount: 1
+  numofpassengers: 1
+  details: MyText
+
+two:
+  user_id: 1
+  source_id: 1
+  destinatoin_id: 1
+  starttime: 2011-09-27 18:46:49
+  endtime: 2011-09-27 18:46:49
+  vehicle: MyString
+  amount: 1
+  numofpassengers: 1
+  details: MyText

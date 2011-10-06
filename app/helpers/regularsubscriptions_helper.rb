@@ -1,0 +1,2 @@
+module RegularsubscriptionsHelper
+end

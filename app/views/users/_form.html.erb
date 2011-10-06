@@ -1,0 +1,67 @@
+ <% @cities = City.all %>
+ <% cou = @cities.count %>
+ <% arr = Array.new(cou) { Array.new(2) } %>
+ <% for n in 1..cou %>
+ <% arr[n-1][0] = @cities[n-1].cityname %>
+ <% arr[n-1][1] = n %>
+ <% end %>
+ <% arr %>
+
+<script type="text/javascript" charset="utf-8">
+    $(function(){
+	$('.date-pick').datePicker({clickInput:true})
+    });
+</script>
+
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+       <p> &nbsp;&nbsp;&nbsp;<%= @user.errors.full_messages[0] %></p>
+    </div>
+  <% end %>
+  <table border="0" width="400">
+    <TR><TD width=" "> First Name</td>
+    <td width="50%"><%= f.text_field :firstname %>
+    </TD></TR>
+ 
+ 
+    <TR><TD>
+    Last Name</td><td>
+    <%= f.text_field :lastname %></TD></TR>
+    <TR><TD>
+    <%= f.label :usernmae %></td><td>
+    <%= f.text_field :username %></TD></TR>
+    <TR><TD>
+    <%= f.label :email %></td><td>
+    <%= f.text_field :email %></TD></TR>
+ 
+   <TR><TD>
+  <%= f.label :password %></td><td>
+  <%= f.password_field :password %></TD></TR>
+ 
+   <TR><TD>
+  <%= f.label :password_confirmation, "Confirm Password" %></td><td>
+  <%= f.password_field :password_confirmation %></TD></TR>
+ 
+   <TR><TD>
+    <%= f.label :city %></td><td>
+    <%= f.select(:city_id, arr ) %></TD></TR>
+
+    <TR><TD>
+    <%= f.label :sex %></td><td>
+    <%= f.select( :sex, [["Male", "Male"], ["Female", "Female"]])%></TD></TR>
+
+    <TR><TD>
+    <%= f.label :dateofbirth %></td><td>
+    <%= f.date_select( :dateofbirth,:date_separator => "-" , :start_year => 1960 ) %></TD></TR>
+ <TR><TD>
+    <%= f.label :phonenumber %></td><td>
+    <%= f.text_field :phonenumber %></TD></TR>
+ </table>
+<input id="lastloginip" name="user[lastloginip]" type="hidden" value="<%= request.remote_addr %>" />
+ 
+  <div class="actions">
+    <%= f.submit "Sign Up" %>
+  </div>
+<% end %>

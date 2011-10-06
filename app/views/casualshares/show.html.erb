@@ -1,0 +1,50 @@
+
+
+<p>
+  <b>User:</b>
+  <%= @casualshare.user.firstname %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= Place.find(@casualshare.source_id).placename %>
+</p>
+
+<p>
+  <b>Destinatoin:</b>
+  <%= Place.find(@casualshare.destination_id).placename %>
+</p>
+
+<p>
+  <b>Starttime:</b>
+  <%= @casualshare.starttime %>
+</p>
+
+<p>
+  <b>Endtime:</b>
+  <%= @casualshare.endtime %>
+</p>
+
+<p>
+  <b>Vehicle:</b>
+  <%= @casualshare.vehicle %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @casualshare.amount %>
+</p>
+
+<p>
+  <b>Numofpassengers:</b>
+  <%= @casualshare.numofpassengers %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @casualshare.details %>
+</p>
+
+
+<%= link_to 'Edit', edit_casualshare_path(@casualshare) %> |
+<%= link_to 'Back', casualshares_path %>

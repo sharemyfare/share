@@ -1,0 +1,20 @@
+<%= form_for @regularsubscription do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+<table border=0 ><tr><td>
+  <div class="field">
+    <%= f.label :amount %> :
+    <%= f.text_field( :amount, :size => "10x4" , ) %>
+    <%= f.label :passengers %>: 
+    <%= f.text_field( :passengers, :size => "10x4" , ) %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br/>	
+    <%= f.text_area( :details, :size => "50x4" , :maxlength => 220 ) %>
+  </div>
+<input id="regularsubscription_regularshare_id" name="regularsubscription[regularshare_id]" type="hidden" value="<%= @regularshare.id %>" />
+<input id="regularsubscription_user_id" name="regularsubscription[user_id]" type="hidden" value="<%= current_user.id %>" />
+<div class="actions">
+<%= f.submit "Request" %>
+</div>
+</td></tr></table>
+<% end %>

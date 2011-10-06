@@ -1,0 +1,15 @@
+<tr>
+<td class="micropost">
+<%= link_to @regularcomment.user.firstname, @regularcomment.user %> : 
+<span class="content"><%= regularcomment.details %></span><br/>
+
+<span class="timestamp">Posted <%= time_ago_in_words(regularcomment.created_at) %> ago.
+</span>
+<% if current_user == regularcomment.user %>
+<%= link_to "delete", regularcomment, :method => :delete,
+:confirm => "You sure?",
+:title => regularcomment.details %>
+</td>
+<% end %>
+</tr>
+
