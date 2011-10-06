@@ -9,7 +9,7 @@ class AddDetailsToUsers < ActiveRecord::Migration
     add_column :users, :phonenumber, :string
     add_column :users, :lastloginip, :string
     add_column :users, :confirmation, :string
-    add_column :users, :active, :boolean, :default => 0
+    add_column :users, :active, :boolean, :default => false
     add_index :users, :city_id
   end
 end
