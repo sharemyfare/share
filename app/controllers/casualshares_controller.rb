@@ -3,33 +3,22 @@ class CasualsharesController < ApplicationController
   # GET /casualshares.json
   def index
     @casualshares = Casualshare.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @casualshares }
-    end
   end
 
-  # GET /casualshares/1
-  # GET /casualshares/1.json
+
   def show
     @casualshare = Casualshare.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @casualshare }
-    end
+    @casualsubscription = current_user.casualsubscriptions.build(params[:casualsubscription])
+    @casualsubscriptions = Casualsubscription.where("casualshare_id=?", params[:id]).order('created_at DESC')
+
+    @casualcomment = current_user.casualcomments.build(params[:casualcomment])
+    @casualcomments = Casualcomment.where("casualshare_id=?", params[:id]).order('created_at DESC')
+
   end
 
-  # GET /casualshares/new
-  # GET /casualshares/new.json
   def new
     @casualshare = Casualshare.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @casualshare }
-    end
   end
 
   # GET /casualshares/1/edit

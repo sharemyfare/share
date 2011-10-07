@@ -1,35 +1,20 @@
-<h1>Listing casualshares</h1>
+<h1>Casual Shares</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Source</th>
-    <th>Destinatoin</th>
-    <th>Starttime</th>
-    <th>Endtime</th>
-    <th>Vehicle</th>
-    <th>Amount</th>
-    <th>Numofpassengers</th>
-    <th>Details</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table border=1 width=1000>
+
 
 <% @casualshares.each do |casualshare| %>
   <tr>
-    <td><%= casualshare.user_id %></td>
-    <td><%= casualshare.source_id %></td>
-    <td><%= casualshare.destination_id %></td>
-    <td><%= casualshare.starttime %></td>
-    <td><%= casualshare.endtime %></td>
-    <td><%= casualshare.vehicle %></td>
-    <td><%= casualshare.amount %></td>
-    <td><%= casualshare.numofpassengers %></td>
-    <td><%= casualshare.details %></td>
-    <td><%= link_to 'Show', casualshare %></td>
-    <td><%= link_to 'Edit', edit_casualshare_path(casualshare) %></td>
-    <td><%= link_to 'Destroy', casualshare, confirm: 'Are you sure?', method: :delete %></td>
+    <td> 
+	<p> Created By : <%= casualshare.user.firstname %>  <br/>
+	<b> Source : </b><%= Place.find(casualshare.source_id).placename %> |
+	<b> Destination : </b><%= Place.find(casualshare.destination_id).placename %><br/>
+        <b> Starting Time :</b><%= casualshare.starttime %> |
+        <b> Reaching Time :</b><%= casualshare.endtime %><br/><br/>
+        <%= link_to 'Show', casualshare %> | 
+        <%= link_to 'Edit', edit_casualshare_path(casualshare) %> |
+        <%= link_to 'Destroy', casualshare, confirm: 'Are you sure?', method: :delete %></p>
+    </td>	
   </tr>
 <% end %>
 </table>

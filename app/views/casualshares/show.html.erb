@@ -1,5 +1,5 @@
 
-
+<table width=1000 align=center border=0><tr><td width=65% valign=top>
 <p>
   <b>User:</b>
   <%= @casualshare.user.firstname %>
@@ -48,3 +48,29 @@
 
 <%= link_to 'Edit', edit_casualshare_path(@casualshare) %> |
 <%= link_to 'Back', casualshares_path %>
+
+</td><td>
+<%= render 'shared/casualsubscription_form' %>
+
+<% unless @casualsubscriptions.empty? %>
+
+<table class="microposts" style="text-align:left;" border=1 cellspacing=0 width=400>
+<%= render @casualsubscriptions %>
+</table>
+
+<% end %>
+</td></tr>
+<tr><td>
+<br/><hr />
+<%= render 'shared/casualcomment_form' %>
+
+<% unless @casualcomments.empty? %>
+
+<table class="microposts" style="text-align:left;" border=1 cellspacing=0 width=400>
+<%= render @casualcomments %>
+</table>
+<% end %>
+
+</td></tr>
+
+</table>

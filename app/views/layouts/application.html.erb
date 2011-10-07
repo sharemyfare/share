@@ -19,8 +19,10 @@
         <% else %>
         <%= link_to "Register", signup_path%> | 
         <%= link_to "Login", :login %>
-        <% end %>
+        <% end %> 
+        | <%= link_to "Home page", home_path%>
     </div>
+
 
 <% flash.each do |key, value| %>
 <div id="flash <%= key %>"><%= value %></div>

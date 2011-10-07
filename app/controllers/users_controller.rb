@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(@current_user.id)
+    @regularsubscriptions = @current_user.regularsubscriptions
+    @casualsubscriptions = @current_user.casualsubscriptions
   end
 
   def new

@@ -42,15 +42,12 @@ class CasualcommentsController < ApplicationController
   def create
     @casualcomment = Casualcomment.new(params[:casualcomment])
 
-    respond_to do |format|
       if @casualcomment.save
-        format.html { redirect_to @casualcomment, notice: 'Casualcomment was successfully created.' }
-        format.json { render json: @casualcomment, status: :created, location: @casualcomment }
+	redirect_to Casualshare.find(@casualcomment.casualshare_id), notice: 'casualcomment was successfully created.' 
       else
-        format.html { render action: "new" }
-        format.json { render json: @casualcomment.errors, status: :unprocessable_entity }
+        redirect_to Casualshare.find(@casualcomment.casualshare_id), notice: 'Please try again.' 
       end
-    end
+
   end
 
   # PUT /casualcomments/1

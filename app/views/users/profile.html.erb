@@ -1,11 +1,33 @@
 
 <p>
   Hi
-  <%= @user.username %>,
+  <b><%= @user.firstname %> <%= @user.lastname %></b>,
   <%= "This is your home page" %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-<%= link_to 'Casual Shares', casualshares_path %>
+<table border=1 width=1000>
+<tr><td>
+<h4>Regular Share Subscriptios By You :</h4>
+<% @regularsubscriptions.each do |regularsubscription| %>
+    <p> <%= link_to "Regularshare", regularsubscription.regularshare %><br/>
+     Current Status : 
+    <b><% if regularsubscription.status? %> Confirmed <% else %> Waiting <% end %><br/></b>
+    Details : <%= regularsubscription.details %><br/>
+<% end %>
+</td></tr>
+<tr><td>
+<h4>Casual Share Subscriptios By You :</h4>
+
+<% @casualsubscriptions.each do |casualsubscription| %>
+    <p> <%= link_to "Casualshare", casualsubscription.casualshare %><br/>
+     Current Status : 
+    <b><% if casualsubscription.status? %> Confirmed <% else %> Waiting <% end %><br/></b>
+    Details : <%= casualsubscription.details %><br/>
+<% end %>
+
+</td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+</table>
+<%= link_to 'Casual Shares', casualshares_path %> | 
 <%= link_to 'Regular Shares', regularshares_path %>

@@ -1,0 +1,17 @@
+<tr>
+<td class="micropost">
+<%= link_to @casualsubscription.user.firstname, @casualsubscription.user %> : 
+<span class="content"><%= casualsubscription.details %></span><br/>
+<span class="content"><%= "Amount : " %><b><%= casualsubscription.amount %></b></span>&nbsp;&nbsp;&nbsp;
+<span class="content"><%= "Passngrs : " %><b><%= casualsubscription.passengers %></b></span>&nbsp;&nbsp;&nbsp;
+
+<span class="timestamp">Posted <%= time_ago_in_words(casualsubscription.created_at) %> ago.
+</span>
+<% if current_user == casualsubscription.user %>
+<%= link_to "delete", casualsubscription, :method => :delete,
+:confirm => "You sure?",
+:title => casualsubscription.details %>
+</td>
+<% end %>
+</tr>
+

@@ -1,49 +1,20 @@
-<h1>Listing regularshares</h1>
+<h1>Regular Shares</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Source</th>
-    <th>Destinatoin</th>
-    <th>Starttime</th>
-    <th>Endtime</th>
-    <th>Monday</th>
-    <th>Tuesday</th>
-    <th>Wednesday</th>
-    <th>Thursday</th>
-    <th>Friday</th>
-    <th>Saturday</th>
-    <th>Sunday</th>
-    <th>Vehicle</th>
-    <th>Amount</th>
-    <th>Numofpassengers</th>
-    <th>Details</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table border=1 width=1000>
+
 
 <% @regularshares.each do |regularshare| %>
   <tr>
-    <td><%= regularshare.user_id %></td>
-    <td><%= regularshare.source_id %></td>
-    <td><%= regularshare.destination_id %></td>
-    <td><%= regularshare.starttime %></td>
-    <td><%= regularshare.endtime %></td>
-    <td><%= regularshare.monday %></td>
-    <td><%= regularshare.tuesday %></td>
-    <td><%= regularshare.wednesday %></td>
-    <td><%= regularshare.thursday %></td>
-    <td><%= regularshare.friday %></td>
-    <td><%= regularshare.saturday %></td>
-    <td><%= regularshare.sunday %></td>
-    <td><%= regularshare.vehicle %></td>
-    <td><%= regularshare.amount %></td>
-    <td><%= regularshare.numofpassengers %></td>
-    <td><%= regularshare.details %></td>
-    <td><%= link_to 'Show', regularshare %></td>
-    <td><%= link_to 'Edit', edit_regularshare_path(regularshare) %></td>
-    <td><%= link_to 'Destroy', regularshare, confirm: 'Are you sure?', method: :delete %></td>
+    <td> 
+	<p> Created By : <%= regularshare.user.firstname %>  <br/>
+	<b> Source : </b><%= Place.find(regularshare.source_id).placename %> |
+	<b> Destination : </b><%= Place.find(regularshare.destination_id).placename %><br/>
+        <b> Starting Time :</b><%= regularshare.starttime %> |
+        <b> Reaching Time :</b><%= regularshare.endtime %><br/><br/>
+        <%= link_to 'Show', regularshare %> | 
+        <%= link_to 'Edit', edit_regularshare_path(regularshare) %> |
+        <%= link_to 'Destroy', regularshare, confirm: 'Are you sure?', method: :delete %></p>
+    </td>	
   </tr>
 <% end %>
 </table>

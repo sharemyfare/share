@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 	has_many :regularshares, :dependent => :destroy
 	has_many :casualsubscriptions, :dependent => :destroy
 	has_many :regularsubscriptions, :dependent => :destroy
+	has_many :casualcomments, :dependent => :destroy					
 	has_many :regularcomments, :dependent => :destroy				
 
 

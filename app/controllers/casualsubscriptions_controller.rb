@@ -40,17 +40,14 @@ class CasualsubscriptionsController < ApplicationController
   # POST /casualsubscriptions
   # POST /casualsubscriptions.json
   def create
-    @casualsubscription = Casualsubscription.new(params[:casualsubscription])
-
-    respond_to do |format|
+    @casualsubscription =  Casualsubscription.new(params[:casualsubscription])
+    @casualsubscription.status = false
       if @casualsubscription.save
-        format.html { redirect_to @casualsubscription, notice: 'Casualsubscription was successfully created.' }
-        format.json { render json: @casualsubscription, status: :created, location: @casualsubscription }
+        redirect_to Casualshare.find(@casualsubscription.casualshare_id), notice: 'Casualsubscription was successfully created.' 
       else
-        format.html { render action: "new" }
-        format.json { render json: @casualsubscription.errors, status: :unprocessable_entity }
+        redirect_to Casualshare.find(@casualsubscription.casualshare_id), notice: 'Please try again.' 
       end
-    end
+
   end
 
   # PUT /casualsubscriptions/1
